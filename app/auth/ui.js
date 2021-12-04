@@ -65,7 +65,8 @@ const signOutSuccess = (responseData) => {
     $('#hello').text('Not signed in')
 
     $('.before-signin').show()
-    $('.after-signin').hide()    
+    $('.after-signin').hide()
+    $('#game-board').hide()    
 
     $('form').trigger('reset')
 }

@@ -40,16 +40,18 @@ const checkWin = () => {
         [6, 4, 2],
     ]
 
-    // player 1 win conditions
     const x = game.gameState.xTiles
     const y = game.gameState.oTiles
 
+    // tie logic
     if (game.gameState.turn === 9) {
         $('#win-alert').text("Game tied!")
         game.gameState.active = false
         $('.win').show()
+        $('#new-game').show()
     }
     
+    // X win or O win, end game logic
     for (let tiles = 0; tiles < win.length; tiles++) {
         if ( option(x, win[tiles]) ) {
             $('#win-alert').text("X wins!")
@@ -71,6 +73,7 @@ const checkWin = () => {
 const selectBox = (event) => {
     if (game.gameState.active) {
 
+        // set values to send to API
         const tile = $(event.target).data("tile")
         let selectXO = ""
 
@@ -83,6 +86,7 @@ const selectBox = (event) => {
             console.log("already played by O")
         }
 
+        // turn details
         else if (game.gameState.turn % 2 === 0) {
             selectXO = "X"
             $(event.target).text(selectXO)
@@ -97,6 +101,7 @@ const selectBox = (event) => {
             game.gameState.turn++
         }
 
+        // check win logic, end game if win occurs
         checkWin()
 
         // currently doesn't update at the end of the game to let the server know the game is over
@@ -126,7 +131,6 @@ const newGame = () => {
 
 const newGameSuccess = (gameData) => {
 
-    console.log(gameData)
     game.gameState.id = gameData.game._id
     game.gameState.cells = gameData.game.cells
     game.gameState.owner = gameData.game.owner

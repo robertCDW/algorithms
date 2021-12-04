@@ -3,6 +3,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../lib/get-form-fields')
+const game = require('../tic-tac-toe/game-state')
 
 const showSignUp = () => {
     $('.sign-up-form').show()

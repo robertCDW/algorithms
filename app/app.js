@@ -4,12 +4,13 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
-const authEvents = require('./auth/events')
-const gameEvents = require('./tic-tac-toe/events')
+//const authEvents = require('./auth/events')
+const bubbleEvents = require('./bubblesort/events')
 
 $(() => {
   
   // login and logout
+  /*
   $('#sign-in-show').on('click', authEvents.showSignIn)
   $('#sign-up-show').on('click', authEvents.showSignUp)
   $('#change-password-show').on('click', authEvents.showChangePassword)
@@ -18,9 +19,11 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.signOut)
-
-  // tic tac toe
-  $('.box').on('click', gameEvents.selectBox)
-
-  $('#new-game').on('click', gameEvents.newGame)
+  */
+  // bubblesort
+  $('#create').on('click', bubbleEvents.onCreate)
+  $('#step').on('click', bubbleEvents.onStep)
+  $('#show').on('click', bubbleEvents.onShow)
+  $('#index').on('click', bubbleEvents.onIndex)  
+  $('#delete').on('click', bubbleEvents.onDelete)
 })
