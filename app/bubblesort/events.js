@@ -14,7 +14,6 @@ const onCreate = (event) => {
 
     api.newSort()
     .then(data => {
-        console.log(data)
         ui.createSuccess(data)
         sessionStorage.setItem('id',`${data.bubbles._id}`)
     })
@@ -26,7 +25,9 @@ const onIndex = (event) => {
     event.preventDefault()
 
     api.indexSort()
-    .then(console.log)
+    .then(data => {
+        ui.indexSuccess(data.bubbleSorts)
+    })
     .catch(console.error)
 }
 
@@ -34,13 +35,14 @@ const onIndex = (event) => {
 const onShow = (event) => {
     event.preventDefault()
 
-    console.log(sessionStorage.getItem('id'))
+    // const form = event.target
+    // const formData = getFormFields(form)
 
-    /*
+    sessionStorage.setItem('id', event.target.form.name)
+
     api.showSort(sessionStorage.getItem('id'))
     .then(ui.showSuccess)
     .catch(console.error)
-    */
 }
 
 
@@ -62,8 +64,20 @@ const onStep = (event) => {
 const onDelete = (event) => {
     event.preventDefault()
 
-    api.deleteSort()
-    .then(console.log)
+    // setting the session storage value to ensure it's present later when deleting the id key
+    sessionStorage.setItem('id', event.target.form.name)
+
+    api.deleteSort(sessionStorage.getItem('id'))
+    .then(() => {
+        sessionStorage.removeItem('id')
+
+        api.indexSort()
+        .then(data => {
+            ui.indexSuccess(data.bubbleSorts)
+        })
+        .catch(console.error)
+
+    })
     .catch(console.error)
 }
 

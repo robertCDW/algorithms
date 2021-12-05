@@ -23,7 +23,7 @@ $(() => {
   // bubblesort
   $('#create').on('click', bubbleEvents.onCreate)
   $('#step').on('click', bubbleEvents.onStep)
-  $('#show').on('click', bubbleEvents.onShow)
-  $('#index').on('click', bubbleEvents.onIndex)  
-  $('#delete').on('click', bubbleEvents.onDelete)
+  $('#index').on('click', bubbleEvents.onIndex)
+  $(document).on('click', '.sort-show', bubbleEvents.onShow)
+  $(document).on('click', '.sort-delete', bubbleEvents.onDelete)
 })

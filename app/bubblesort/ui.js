@@ -11,6 +11,32 @@ const populateNumbers = (arr) => {
     $('#visualize').html(str)
 }
 
+const populateNumbersIndex = (arrays) => {
+
+    let str = ""
+
+    // each outer loop will be for a bubble object
+    // need to create a select(show) button and a delete button
+    // need to populate the arrays
+    // select button will be used for show command
+    // delete button will be used to destroy
+    // then need to start a new line
+    for (let i = 0; i < arrays.length; i++) {
+        str += `<form class="bubbles" name="${arrays[i]._id}"><button class="sort-show">Select</button><button class="sort-delete">Delete</button>`
+        arrays[i].last.arr.forEach(element => {
+            str += `<div class="sort-medium">${element}</div>`
+        });
+        str += `</form><br><br><br>`
+    }
+
+    
+    // arr.forEach(element => {
+    //     str += `<div class="sort-medium">${element}</div>`
+    // });
+
+    $('#visualize').html(str)
+}
+
 const createSuccess = (data) => {
     populateNumbers(data.bubbles.last.arr)
 }
@@ -20,11 +46,11 @@ const stepSuccess = (data) => {
 }
 
 const indexSuccess = (data) => {
-    populateNumbers(data.bubbles.last.arr)
+    populateNumbersIndex(data)
 }
 
 const showSuccess = (data) => {
-    populateNumbers(data.bubbles.last.arr)
+    populateNumbers(data.bubbleSort.last.arr)
 }
 
 const deleteSuccess = () => {

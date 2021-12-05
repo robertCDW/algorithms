@@ -12,7 +12,7 @@ const showSort = (id) => {
 
     return $.ajax({
         method: "GET",
-        url: `/bubble-sort/${id}`
+        url: config.apiUrl + `/bubble-sort/${id}`
     })
 }
 
