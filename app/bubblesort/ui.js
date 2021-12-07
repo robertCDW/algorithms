@@ -2,11 +2,12 @@
 
 const populateNumbers = (arr) => {
     console.log(arr)
-    let str = ""
+    let str = `<form><button class="btn btn-light sort-step">Step</button>`
     
     arr.forEach(element => {
-        str += `<div class="sort-medium">${element}</div>`
+        str += `<div class="sort-medium col-2">${element}</div>`
     });
+    str += "</form><br>"
 
     $('#visualize').html(str)
 }
@@ -22,17 +23,12 @@ const populateNumbersIndex = (arrays) => {
     // delete button will be used to destroy
     // then need to start a new line
     for (let i = 0; i < arrays.length; i++) {
-        str += `<form class="bubbles" name="${arrays[i]._id}"><button class="sort-show">Select</button><button class="sort-delete">Delete</button>`
+        str += `<form class="bubbles" name="${arrays[i]._id}"><button class="sort-show btn btn-success">Select</button><button class="sort-delete btn btn-danger">Delete</button>`
         arrays[i].last.arr.forEach(element => {
-            str += `<div class="sort-medium">${element}</div>`
+            str += `<div class="sort-medium col-2">${element}</div>`
         });
         str += `</form><br><br><br>`
     }
-
-    
-    // arr.forEach(element => {
-    //     str += `<div class="sort-medium">${element}</div>`
-    // });
 
     $('#visualize').html(str)
 }

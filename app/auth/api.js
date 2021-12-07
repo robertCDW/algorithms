@@ -28,7 +28,7 @@ const changePassword = (formData) => {
         method: "PATCH",
         // authorization header format
         headers: {
-            Authorization: "Bearer " + store.user.token
+            Authorization: "Bearer " + sessionStorage.getItem('token')
         },
         url: config.apiUrl + "/change-password/",
         data: formData,
@@ -41,7 +41,7 @@ const signOut = (formData) => {
         method: "DELETE",
         // authorization header format
         headers: {
-            Authorization: "Bearer " + store.user.token
+            Authorization: "Bearer " + sessionStorage.getItem('token')
         },
         url: config.apiUrl + "/sign-out/",
     })

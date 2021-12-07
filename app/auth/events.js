@@ -3,42 +3,41 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../lib/get-form-fields')
-const game = require('../tic-tac-toe/game-state')
 
 const showSignUp = () => {
-    $('.sign-up-form').show()
-    $('.sign-in-form').hide()
-    $('.change-password-form').hide()
+
 }
 
 const showSignIn = () => {
-    $('.sign-up-form').hide()
-    $('.sign-in-form').show()
-    $('.change-password-form').hide()
+
 }
 
 const showChangePassword = () => {
-    $('.sign-up-form').hide()
-    $('.sign-in-form').hide()
-    $('.change-password-form').show()
+
 }
 
 const showCancel = () => {
-    $('.sign-up-form').hide()
-    $('.sign-in-form').hide()
-    $('.change-password-form').hide()
+
 }
 
 const onSignUp = (event) => {
 
     event.preventDefault()
+    
+    const form = event.target.form
 
-    // event.target is the form that caused the submit event
-    const form = event.target
-    const formData = getFormFields(form)
+    const formData = {
+        credentials: {
+            email: form[0].value,
+            password: form[1].value,
+            password_confirmation: form[2].value
+        }
+    }
 
     api.signUp(formData)
-    .then(ui.signUpSuccess)
+    .then(data => {
+        ui.signUpSuccess(data)
+    })
     .catch(ui.signUpFailure)
 }
 
@@ -46,12 +45,23 @@ const onSignIn = (event) => {
 
     event.preventDefault()
 
-    // event.target is the form that caused the submit event
-    const form = event.target
-    const formData = getFormFields(form)
+    const form = event.target.form
+
+    const formData = {
+        credentials: {
+            email: form[0].value,
+            password: form[1].value
+        }
+    }
 
     api.signIn(formData)
-    .then(ui.signInSuccess)
+    .then(data => {
+
+        sessionStorage.setItem('user', data.user._id)
+        sessionStorage.setItem('token', data.user.token)
+        
+        ui.signInSuccess(data)
+    })
     .catch(ui.signInFailure)
 }
 
@@ -59,7 +69,14 @@ const onChangePassword = (event) => {
 
     event.preventDefault()
 
-    const formData = getFormFields(event.target)
+    // console.log(event.target)
+
+    const formData = {
+        passwords: {
+            old: event.target.form[0].value,
+            new: event.target.form[1].value
+        }
+    }
 
     api.changePassword(formData)
     .then(ui.changePasswordSuccess)
