@@ -1,0 +1,97 @@
+@import '~bootstrap/scss/bootstrap';
+
+$primary: blue;
+
+#signin-outer {
+  background-color: white;
+  padding-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+#signin-inner {
+  background-color: aqua;
+  margin: 1rem;
+  text-align: center;
+  padding: 1rem 1rem;
+}
+
+.drop-btn {
+  position: relative;
+}
+
+.signin-button {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.drop-item {
+  display: none;
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  background-color: white;
+  border: solid;
+  border-color: aqua;
+  border-radius: 2px;
+}
+
+#after-signin {
+    display: none;
+}
+
+nav {
+  height: auto;
+  background-color: aqua;
+  padding: 0.2rem;
+  display: flex;
+}
+
+#selection-nav {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 0.3rem;
+}
+
+
+#algorithm-outer {
+  margin-top: 2rem;
+  min-height: 6rem;
+  height: auto;
+  background-color: aqua;
+}
+
+#algorithm-inner {
+  text-align: center;
+}
+
+#visualize {
+  margin-top: 2rem;
+  justify-content: center;
+  text-align: center;
+}
+
+.btn {
+  margin-right: 0.2rem;
+}
+
+.sort-new {
+  margin-right: 5px;
+  text-align: center;
+}
+
+.sort-medium {
+  margin-right: 5px;
+  padding: 20px 30px;
+  display: inline;
+  border:black;
+  border-style: solid;
+  color: black;
+  background-color: white;
+}
+
+.sort-medium-focus {
+  background-color: greenyellow;
+}

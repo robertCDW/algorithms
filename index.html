@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Algorithms</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+        <div id="signin-outer" class="container">
+        <div id="signin-inner" class="row">
+
+          <!-- sign up form -->
+          <form>
+            <div class="col-12">
+              <h1>Welcome to Algorithms</h1>
+              <div class="form-group" id="signup-form">
+                <h4>Sign Up</h4>
+                <label for="emailInputSignup">Email address</label>
+                <input type="email" class="form-control" name="email-signup" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="passwordInputSignup">Password</label>
+                <input type="password" class="form-control" name="password-signup" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="passwordConfirmSignup">Confirm Password</label>
+                <input type="password" class="form-control" name="password-confirmation" placeholder="Confirm Password">
+              </div>
+              <button type="submit" class="btn btn-primary signin-button" id="signup-submit">Sign Up</button>
+            </div>
+          </form>
+
+          <!-- sign in form -->
+          <form>
+          <div class="form-group" id="signin-form">
+            <h4>Sign In</h4>
+            <label for="emailInputSignup">Email address</label>
+            <input type="email" class="form-control" id="email-signup" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="passwordInputSignup">Password</label>
+            <input type="password" class="form-control" id="password-signup" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-primary signin-button" id="signin-submit">Sign In</button>
+          </form>
+        </div>
+      </div>
+
+
+    <div id="after-signin">
+      <nav>
+        <!-- profile button -->
+        <div class="drop-btn">
+          <button class="btn btn-success" type="button" id="profile">Profile</button>
+
+          <div class="drop-item" id="drop-profile">
+            <form>
+            <input type="password" placeholder="Existing Password">
+            <input type="password" placeholder="New Password">
+            <button class="btn btn-primary" id="change-password">Submit</button>
+            </form>
+            <button class="btn btn-danger" id="logout">Logout</button>
+          </div>
+        </div>
+
+        <button class="btn btn-light" id="algorithm-selector">Algorithms</button>
+        <button class="btn btn-light" id="help">?</button>
+      </nav>
+
+      <div id="algorithm-outer" class="container">
+        <div class="row">
+          <div id="algorithm-inner" class="col-12">
+            <div id="selection-nav">
+              <!-- <input type="text"> -->
+              <button class="btn btn-light" id="index">Index</button>
+              <button class="btn btn-light" id="new-sort">New</button>
+            </div>
+
+            <div id="create-drop"></div>
+            <div id="visualize" class="container">
+              <!-- has visualization data pushed to it -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    </body>
+</html>
