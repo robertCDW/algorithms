@@ -35,6 +35,8 @@ const populateNumbersIndex = (arrays) => {
 
 const createSuccess = (data) => {
     populateNumbers(data.bubbles.last.arr)
+    $('form').trigger('reset')
+    $('#create-drop').html("")
 }
 
 const stepSuccess = (data) => {

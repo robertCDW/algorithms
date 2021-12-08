@@ -18,12 +18,13 @@ const showSort = (id) => {
     })
 }
 
-const newSort = () => {
+const newSort = (formData) => {
 
     return $.ajax({
         headers: { "Authorization": 'Bearer ' + sessionStorage.getItem('token') },
         method: "POST",
         url: config.apiUrl + "/bubble-sort/",
+        data: formData
     })
 }
 

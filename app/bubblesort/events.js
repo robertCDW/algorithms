@@ -6,13 +6,25 @@ const getFormFields = require('../../lib/get-form-fields')
 const onCreate = (event) => {
     event.preventDefault()
 
-    // event.target is the form that caused the submit event
-    /*
-    const form = event.target
-    const formData = getFormFields(form)
-    */
+    const form = event.target.form
 
-    api.newSort()
+    let arr = []
+
+    for (let i = 2; i < Number(sessionStorage.getItem('count')) + 2; i++) {
+        if (form[i].value.length == 0) {
+            arr.push(Number(form[i].placeholder))
+        } else {
+            arr.push(Number(form[i].value))
+        }
+    }
+
+    const formData = {
+        arr
+    }
+
+    console.log(formData.arr)
+
+    api.newSort(formData)
     .then(data => {
         ui.createSuccess(data)
         sessionStorage.setItem('id',`${data.bubbles._id}`)
@@ -23,6 +35,8 @@ const onCreate = (event) => {
 
 const onIndex = (event) => {
     event.preventDefault()
+
+    $('#create-drop').html("")
 
     api.indexSort()
     .then(data => {
