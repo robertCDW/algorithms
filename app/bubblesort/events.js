@@ -63,8 +63,6 @@ const onShow = (event) => {
 const onStep = (event) => {
     event.preventDefault()
 
-    console.log("pressing")
-
     api.stepSort(sessionStorage.getItem('id'))
     .then(data => {
         

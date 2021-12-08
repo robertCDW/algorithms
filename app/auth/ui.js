@@ -37,6 +37,9 @@ const signOutSuccess = (responseData) => {
     $('#signin-outer').show()
     $('#after-signin').hide()
     $('#drop-profile').hide()
+    $('#create-drop').html("")
+    $('#visualize').html("")
+    
     sessionStorage.removeItem('token')
 
     $('form').trigger('reset')
